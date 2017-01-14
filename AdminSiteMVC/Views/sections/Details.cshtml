@@ -1,0 +1,50 @@
+﻿@model AdminSiteMVC.Models.section
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>section</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sec_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sec_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.policy.p_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.policy.p_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.version.v_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.version.v_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.sec_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,56 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+#loginForm{
+    padding-bottom:100px; 
+    padding-top:20px; 
+    padding-left:30px; 
+    padding-right:30px;
+    border:1px solid #ccc;
+    margin-top:10%;
+}
+
+.menu-btn{
+    padding: 16px 20px;
+    font-size: 19px;
+    line-height: 1.3333333;
+    border-radius: 0;
+    color: #ffffff;
+    background-color: #008cba;
+    border-color: #0079a1;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #fafafa;
+}

@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Security_Policies1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="access">
+    <Key>
+      <PropertyRef Name="ac_id" />
+    </Key>
+    <Property Name="ac_id" Type="Int32" Nullable="false" />
+    <Property Name="v_id" Type="Int32" Nullable="false" />
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="u_id" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="policy" Relationship="Self.FK_access_policies" FromRole="access" ToRole="policies" />
+    <NavigationProperty Name="user" Relationship="Self.FK_access_users" FromRole="access" ToRole="users" />
+    <NavigationProperty Name="version" Relationship="Self.FK_access_versions" FromRole="access" ToRole="versions" />
+  </EntityType>
+  <EntityType Name="policy">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="p_no" Type="Int32" Nullable="false" />
+    <Property Name="u_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="accesses" Relationship="Self.FK_access_policies" FromRole="policies" ToRole="access" />
+    <NavigationProperty Name="user" Relationship="Self.FK_policies_users" FromRole="policies" ToRole="users" />
+    <NavigationProperty Name="sections" Relationship="Self.FK_sections_policies" FromRole="policies" ToRole="sections" />
+    <NavigationProperty Name="versions" Relationship="Self.FK_versions_policies" FromRole="policies" ToRole="versions" />
+  </EntityType>
+  <EntityType Name="section">
+    <Key>
+      <PropertyRef Name="sec_id" />
+    </Key>
+    <Property Name="sec_id" Type="Int32" Nullable="false" />
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="v_id" Type="Int32" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sec_no" Type="Int32" />
+    <NavigationProperty Name="policy" Relationship="Self.FK_sections_policies" FromRole="sections" ToRole="policies" />
+    <NavigationProperty Name="version" Relationship="Self.FK_sections_versions" FromRole="sections" ToRole="versions" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="Int32" Nullable="false" />
+    <Property Name="role" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="accesses" Relationship="Self.FK_access_users" FromRole="users" ToRole="access" />
+    <NavigationProperty Name="policies" Relationship="Self.FK_policies_users" FromRole="users" ToRole="policies" />
+    <NavigationProperty Name="versions" Relationship="Self.FK_versions_users" FromRole="users" ToRole="versions" />
+  </EntityType>
+  <EntityType Name="version">
+    <Key>
+      <PropertyRef Name="v_id" />
+    </Key>
+    <Property Name="v_id" Type="Int32" Nullable="false" />
+    <Property Name="v_no" Type="Int32" Nullable="false" />
+    <Property Name="u_id" Type="Int32" Nullable="false" />
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="accesses" Relationship="Self.FK_access_versions" FromRole="versions" ToRole="access" />
+    <NavigationProperty Name="policy" Relationship="Self.FK_versions_policies" FromRole="versions" ToRole="policies" />
+    <NavigationProperty Name="sections" Relationship="Self.FK_sections_versions" FromRole="versions" ToRole="sections" />
+    <NavigationProperty Name="user" Relationship="Self.FK_versions_users" FromRole="versions" ToRole="users" />
+  </EntityType>
+  <Association Name="FK_access_policies">
+    <End Role="policies" Type="Self.policy" Multiplicity="1" />
+    <End Role="access" Type="Self.access" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="policies">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="access">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_access_users">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="access" Type="Self.access" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="access">
+        <PropertyRef Name="u_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_access_versions">
+    <End Role="versions" Type="Self.version" Multiplicity="1" />
+    <End Role="access" Type="Self.access" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="versions">
+        <PropertyRef Name="v_id" />
+      </Principal>
+      <Dependent Role="access">
+        <PropertyRef Name="v_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_policies_users">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="policies" Type="Self.policy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="policies">
+        <PropertyRef Name="u_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sections_policies">
+    <End Role="policies" Type="Self.policy" Multiplicity="1" />
+    <End Role="sections" Type="Self.section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="policies">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="sections">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_versions_policies">
+    <End Role="policies" Type="Self.policy" Multiplicity="1" />
+    <End Role="versions" Type="Self.version" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="policies">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="versions">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sections_versions">
+    <End Role="versions" Type="Self.version" Multiplicity="1" />
+    <End Role="sections" Type="Self.section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="versions">
+        <PropertyRef Name="v_id" />
+      </Principal>
+      <Dependent Role="sections">
+        <PropertyRef Name="v_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_versions_users">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="versions" Type="Self.version" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="versions">
+        <PropertyRef Name="u_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Security_Policies1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accesses" EntityType="Self.access" />
+    <EntitySet Name="policies" EntityType="Self.policy" />
+    <EntitySet Name="sections" EntityType="Self.section" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="versions" EntityType="Self.version" />
+    <AssociationSet Name="FK_access_policies" Association="Self.FK_access_policies">
+      <End Role="policies" EntitySet="policies" />
+      <End Role="access" EntitySet="accesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_access_users" Association="Self.FK_access_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="access" EntitySet="accesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_access_versions" Association="Self.FK_access_versions">
+      <End Role="versions" EntitySet="versions" />
+      <End Role="access" EntitySet="accesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_policies_users" Association="Self.FK_policies_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="policies" EntitySet="policies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sections_policies" Association="Self.FK_sections_policies">
+      <End Role="policies" EntitySet="policies" />
+      <End Role="sections" EntitySet="sections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_versions_policies" Association="Self.FK_versions_policies">
+      <End Role="policies" EntitySet="policies" />
+      <End Role="versions" EntitySet="versions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sections_versions" Association="Self.FK_sections_versions">
+      <End Role="versions" EntitySet="versions" />
+      <End Role="sections" EntitySet="sections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_versions_users" Association="Self.FK_versions_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="versions" EntitySet="versions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

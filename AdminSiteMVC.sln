@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminSiteMVC", "AdminSiteMVC\AdminSiteMVC.csproj", "{0003B7C4-6F62-4723-9FE6-A7F3621B9E96}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database1", "..\..\..\..\..\..\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\Database1\Database1.sqlproj", "{DCDA7D1D-A134-4003-86F5-6F2FFE96FBD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0003B7C4-6F62-4723-9FE6-A7F3621B9E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0003B7C4-6F62-4723-9FE6-A7F3621B9E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0003B7C4-6F62-4723-9FE6-A7F3621B9E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0003B7C4-6F62-4723-9FE6-A7F3621B9E96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDA7D1D-A134-4003-86F5-6F2FFE96FBD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDA7D1D-A134-4003-86F5-6F2FFE96FBD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDA7D1D-A134-4003-86F5-6F2FFE96FBD4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DCDA7D1D-A134-4003-86F5-6F2FFE96FBD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDA7D1D-A134-4003-86F5-6F2FFE96FBD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDA7D1D-A134-4003-86F5-6F2FFE96FBD4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

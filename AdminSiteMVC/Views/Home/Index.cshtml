@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section Styles {
+   
+<link href="@Url.Content("https://fonts.googleapis.com/icon?family=Material+Icons")" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+}
+<div class="jumbotron jumbotron-fluid">
+    <h1 class="text-center">Welcome Administrator</h1>
+    <h4><center>“if Information is the key that defines business, then Information Security is the secret magic that keeps successful organizations ahead of competition”  </center></h4>
+    <a href="@Url.Action("CurrentPolicy","sections")" class="btn btn-primary btn-xs">View Current Policy <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+</div>
+<div class="col-sm-3">
+    <a href="#" class="menu-btn btn btn-default btn-block">Manage Policies</a>
+    <a href="#" class="menu-btn btn btn-default btn-block">View Details</a>
+    <a href="#" class="menu-btn btn btn-default btn-block">Add Admin</a>
+</div>
+
+@*<div class="container">
+    <a href="@Url.Action("Index","sections")" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+</script>*@
+<div class="container col-sm-6 bordered">
+    <table align="center" cellpadding="3" cellspacing="8" class="auto-style2">
+        <tr class="collection">
+            <td class="collection-item avatar">
+                <i class="material-icons circle">perm_identity</i>
+                <a href="#" class="title">No. of users</a>
+                <p><label>200</label></p>
+            </td>
+            <td class="collection-item avatar">
+                <i class="material-icons circle">thumb_up</i>
+                <a href="#" class="title">Accepted Users</a>
+                <p><label>130</label></p>
+            </td>
+            <td class="collection-item avatar">
+                <i class="material-icons circle">thumb_down</i>
+                <a href="#" class="title">Users to Accept</a>
+                <p><label>70</label></p>
+            </td>
+        </tr>
+    </table>
+</div>

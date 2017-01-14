@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eb54dcfa187b4169aa2aa5d1096d5523" Name="Diagram1">
+        <EntityTypeShape EntityType="Security_Policies1Model.access" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Security_Policies1Model.policy" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Security_Policies1Model.section" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Security_Policies1Model.user" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Security_Policies1Model.version" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="Security_Policies1Model.FK_access_policies" ManuallyRouted="false" />
+        <AssociationConnector Association="Security_Policies1Model.FK_access_users" ManuallyRouted="false" />
+        <AssociationConnector Association="Security_Policies1Model.FK_access_versions" ManuallyRouted="false" />
+        <AssociationConnector Association="Security_Policies1Model.FK_policies_users" ManuallyRouted="false" />
+        <AssociationConnector Association="Security_Policies1Model.FK_sections_policies" ManuallyRouted="false" />
+        <AssociationConnector Association="Security_Policies1Model.FK_versions_policies" ManuallyRouted="false" />
+        <AssociationConnector Association="Security_Policies1Model.FK_sections_versions" ManuallyRouted="false" />
+        <AssociationConnector Association="Security_Policies1Model.FK_versions_users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

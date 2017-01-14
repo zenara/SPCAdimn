@@ -1,0 +1,50 @@
+﻿@model AdminSiteMVC.Models.access
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>access</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.policy.p_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.policy.p_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.u_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.u_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.version.v_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.version.v_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ac_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

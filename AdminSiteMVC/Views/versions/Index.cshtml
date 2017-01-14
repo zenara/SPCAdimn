@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AdminSiteMVC.Models.version>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Styles {
+
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+}
+
+<script>
+    $(document).ready(function () {
+        $(".actBtn").click(function () {
+            confirm("Are you sure you want to activate this version?");
+        });
+    });
+
+</script>
+
+<h2>Versions Up to Now</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            User ID
+        </th>
+        <th>
+            Policy Number
+        </th>
+        <th>
+            Version Number
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+
+            @Html.DisplayFor(modelItem => item.user.u_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.policy.p_id)
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.policy.p_id)
+        .
+            @Html.DisplayFor(modelItem => item.v_no)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.v_id }) |*@
+            @Html.ActionLink("View Policy", "Details", new { id=item.v_id }) |
+            <span class="glyphicon glyphicon-trash" aria-hidden="true">@Html.ActionLink("Delete", "Delete", new { id = item.v_id })
+</td>
+        <td class="actBtn">
+            Activate
+        </td>
+    </tr>
+}
+
+</table>
