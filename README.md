@@ -2,6 +2,7 @@
 This is a system to control security policy versions of an organization. It provides the ability to manage security policies and users of the client application within the organization. 
 
 The System consists of two sub systems.
+1. Admin site
 
 ## Installation
 1. Visual Studio 2013 
